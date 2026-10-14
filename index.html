@@ -85,10 +85,9 @@ h2{font-size:clamp(2rem,4.4vw,3.3rem);line-height:1.05;letter-spacing:-.025em;fo
 .rx-sign{font-family:var(--script);font-size:34px;margin-top:18px;text-align:right;color:#1E3F66;position:relative}
 
 /* Services */
-.services{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
-.svc{padding:28px 24px 10px 0;border-right:1px solid var(--line)}
-.svc + .svc{padding-left:24px}
-.svc:last-child{border-right:0}
+.services{display:grid;grid-template-columns:repeat(3,1fr);margin-top:18px;border-top:1px solid var(--line)}
+.svc{padding:26px 24px 26px 0;border-bottom:1px solid var(--line)}
+.svc:not(:nth-child(3n+1)){padding-left:24px;border-left:1px solid var(--line)}
 .svc h3{font-size:19px;margin:0 0 10px;letter-spacing:-.01em}
 .svc p{margin:0;color:var(--muted);font-size:15px}
 
@@ -156,9 +155,9 @@ h2{font-size:clamp(2rem,4.4vw,3.3rem);line-height:1.05;letter-spacing:-.025em;fo
 
 /* Experience */
 .timeline{list-style:none;margin:0;padding:0;border-left:1px solid var(--line);margin-left:6px}
-.timeline li{position:relative;padding:0 0 38px 34px;display:grid;grid-template-columns:200px 1fr;gap:20px}
-.timeline li::before{content:"";position:absolute;left:-6px;top:8px;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid var(--mint)}
-.timeline li.now::before{background:var(--mint)}
+.timeline > li{position:relative;padding:0 0 38px 34px;display:grid;grid-template-columns:200px 1fr;gap:20px}
+.timeline > li::before{content:"";position:absolute;left:-6px;top:8px;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid var(--mint)}
+.timeline > li.now::before{background:var(--mint)}
 .when{color:var(--muted);font-size:15px;font-variant-numeric:tabular-nums}
 .timeline h3{margin:0;font-size:20px;letter-spacing:-.01em}
 .timeline .org{color:var(--mint);font-weight:500;font-size:15px}
@@ -184,10 +183,24 @@ h2{font-size:clamp(2rem,4.4vw,3.3rem);line-height:1.05;letter-spacing:-.025em;fo
 .reach span{display:block;font-size:13px;font-weight:500;color:var(--muted);margin-bottom:4px}
 .reach-note{font-size:14px!important;color:var(--muted)!important;margin:14px 0 0!important}
 @media (max-width:760px){.reach{grid-template-columns:1fr}.reach a + a{padding-left:0;border-left:0}}
+.stats{list-style:none;margin:80px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats li{padding:28px 20px 26px 0}
+.stats li + li{padding-left:22px;border-left:1px solid var(--line)}
+.stats b{display:block;font-size:clamp(2.2rem,4.4vw,3.4rem);line-height:1;font-weight:800;letter-spacing:-.03em;color:var(--mint);margin-bottom:8px}
+.stats span{display:block;color:var(--muted);font-size:15px;line-height:1.4;max-width:22ch}
+.sub{font-size:15px;font-weight:600;color:var(--mint);margin:70px 0 0;letter-spacing:.02em}
+.pts{margin:8px 0 0;padding-left:18px;color:#C9D1D0;max-width:60ch;font-size:16px}
+.pts li{margin:5px 0;padding:0;display:list-item}
+.pts li::marker{color:var(--mint)}
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:30px}
+.edu-grid .edu{margin-top:0}
 footer{border-top:1px solid var(--line);padding:26px 0 34px;color:var(--muted);font-size:14px}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 @media (max-width:960px){
+  .stats{grid-template-columns:1fr 1fr}.stats li:nth-child(3){padding-left:0;border-left:0}.stats li:nth-child(n+3){border-top:1px solid var(--line)}
+  .edu-grid{grid-template-columns:1fr}
+  .svc:not(:nth-child(3n+1)){padding-left:0;border-left:0}
   .hero{grid-template-columns:1fr;padding-top:90px;text-align:left}
   .stage{order:-1;max-width:290px;margin:0 auto}
   .hint{display:none}
@@ -196,7 +209,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   .services{grid-template-columns:1fr 1fr}
   .svc{border-right:0;border-bottom:1px solid var(--line);padding:22px 16px 22px 0!important}
   .skills{grid-template-columns:1fr;gap:30px}
-  .timeline li{grid-template-columns:1fr;gap:4px}
+  .timeline > li{grid-template-columns:1fr;gap:4px}
 }
 @media (max-width:560px){
   .nav a{padding:7px 11px;font-size:13px}
@@ -238,6 +251,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     <div class="creds">
       <span><b>Founder</b>, Medicineonline.pk</span>
       <span><b>Doctor of Pharmacy</b>, University of Sindh</span>
+      <span><b>Hyderabad</b>, Pakistan</span>
     </div>
   </div>
 
@@ -379,15 +393,16 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
       <div class="sec-head"><h2>A pharmacist who speaks marketing</h2></div>
       <div class="about">
         <div>
-          <p class="big">I spent years behind the pharmacy counter before I moved into digital marketing. That's the advantage I bring to health brands.</p>
-          <p>I've supervised a retail pharmacy branch, worked as a community pharmacist, and led a team at an online pharmacy. Then I spent almost two years running social media for multiple ventures at Arpatech, including a film studio.</p>
-          <p>Today I'm building Medicineonline.pk, my own online pharmacy in Pakistan. I handle the brand, the content and the ordering experience myself, so every idea I pitch to a client is one I've tested on my own business first.</p>
+          <p class="big">I started behind the pharmacy counter in 2019, during the peak of the pandemic. Seven years later I build and market health businesses online.</p>
+          <p>My career has covered almost every side of a pharmacy business. I've run branches as a supervisor and acting branch manager, handled audits with management and finance, and managed attendance and payroll for more than 20 branches. I also set up a brand-new pharmacy from the ground up: its operations, inventory, procurement, POS and dispatch, and trained its staff to run it.</p>
+          <p>At Medonline, an e-commerce pharmacy, I moved from pharmacist to team lead and managed its WordPress store and digital marketing. That led me into full-time marketing at Arpatech, where I led event marketing, ran SEO audits and influencer campaigns, and single-handedly grew Rava Documentary Films' YouTube and social channels into a well-known documentary brand in Pakistan.</p>
+          <p>Today I run Medicineonline.pk, my own online pharmacy on Shopify, including its social media and paid ads, so every idea I pitch to a client is one I've tested on my own business first.</p>
           <p style="color:var(--muted);font-size:15px">Member of ASAM, ISSUP and IPMDS.</p>
         </div>
         <div class="rx" aria-label="Prescription card">
           <div class="rx-top">
             <span class="rx-sym">℞</span>
-            <span class="rx-who"><strong>Farhan Rashid Abbasi</strong>PharmD, Digital Marketer<br>Pakistan</span>
+            <span class="rx-who"><strong>Farhan Rashid Abbasi</strong>PharmD, Digital Marketer<br>Hyderabad, Pakistan</span>
           </div>
           <dl>
             <div><dt>For</dt><dd>Pharmacies, clinics and health brands that need to grow online</dd></div>
@@ -398,36 +413,80 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
         </div>
       </div>
 
-      <div style="margin-top:80px" class="services">
-        <div class="svc"><h3>Social media management</h3><p>Content calendars, posting and community management focused on organic growth.</p></div>
-        <div class="svc"><h3>Health content</h3><p>Posts, reels and scripts about medicines and wellness, written with a pharmacist's accuracy.</p></div>
-        <div class="svc"><h3>E-commerce and WhatsApp ordering</h3><p>Online store and WhatsApp order flows that make buying simple for customers.</p></div>
-        <div class="svc"><h3>Promo video scripts</h3><p>Concepts, scripts and storyboards for short vertical videos and ads.</p></div>
+      <ul class="stats">
+        <li><b>7 yrs</b><span>in pharmacy and health marketing, since 2019</span></li>
+        <li><b>200–300%</b><span>of branch sales targets achieved at DVAGO</span></li>
+        <li><b>8–10</b><span>person e-commerce team led at Medonline</span></li>
+        <li><b>4–5</b><span>film screening events organised for Rava Documentary Films</span></li>
+      </ul>
+
+      <h3 class="sub">What I can do for you</h3>
+      <div class="services">
+        <div class="svc"><h3>Social media and YouTube growth</h3><p>Organic strategies, content calendars and channel management that turn small accounts into known brands.</p></div>
+        <div class="svc"><h3>Health content and SEO blogs</h3><p>Posts, reels and search-optimised blogs about medicines and wellness, written with a pharmacist's accuracy.</p></div>
+        <div class="svc"><h3>Website management</h3><p>WordPress and Shopify stores, SEO audits, and fixing site problems directly or with developers.</p></div>
+        <div class="svc"><h3>Influencer and event marketing</h3><p>Free and paid influencer campaigns, film screenings, media events and on-ground promotion.</p></div>
+        <div class="svc"><h3>E-commerce operations and ads</h3><p>End-to-end order flow, WhatsApp prescription ordering and paid ads that bring customers in.</p></div>
+        <div class="svc"><h3>Pharmacy setup and operations</h3><p>Launching a pharmacy or branch: inventory, procurement, POS, dispatch and staff training.</p></div>
       </div>
     </div>
   </section>
 
   <section id="experience">
     <div class="wrap">
-      <div class="sec-head"><h2>Experience</h2><p class="sec-note">From the pharmacy counter to running my own online pharmacy.</p></div>
+      <div class="sec-head"><h2>Experience</h2><p class="sec-note">From a pharmacy intern in the pandemic to founding my own online pharmacy.</p></div>
       <ol class="timeline">
-        <li class="now"><span class="when">May 2026 – now</span><div><h3>Founder</h3><span class="org">Medicineonline.pk</span><p>Building an online pharmacy in Pakistan: brand, website, WhatsApp ordering and promotional content.</p></div></li>
-        <li class="now"><span class="when">Jul 2025 – now</span><div><h3>Co-Founder, part-time</h3><span class="org">Mech-Chem Solutions</span><p>Co-founding a hybrid venture alongside my main work.</p></div></li>
-        <li><span class="when">May 2024 – Dec 2025</span><div><h3>Social Media Executive</h3><span class="org">Arpatech (Pvt) Ltd, Karachi</span><p>Managed social platforms for multiple ventures, including a film studio, with a focus on organic growth.</p></div></li>
-        <li><span class="when">May 2023 – May 2024</span><div><h3>Team Lead</h3><span class="org">Medonline – Cure At Your Door</span><p>Led the team at an online pharmacy, managing day-to-day operations.</p></div></li>
-        <li><span class="when">May 2022 – May 2023</span><div><h3>Community Pharmacist</h3><span class="org">Medonline – Cure At Your Door, Karachi</span><p>Served customers in an e-commerce pharmacy setting, working across orders and patient queries.</p></div></li>
-        <li style="padding-bottom:0"><span class="when">Dec 2021 – Mar 2022</span><div><h3>Shift Supervisor</h3><span class="org">DVAGO Pharmacy & Wellness Experts, Karachi</span><p>Ran branch operations as shift supervisor and acting branch manager, with retail sales targets.</p></div></li>
+        <li class="now"><span class="when">May 2026 – now</span><div><h3>Founder</h3><span class="org">Medicineonline.pk</span>
+          <ul class="pts">
+            <li>Run every part of the e-commerce operation and manage the team behind it.</li>
+            <li>Built and manage the website, which started on WordPress and now runs on Shopify, with WhatsApp prescription ordering.</li>
+            <li>Manage the brand's social media and run its paid ads, including the launch promo shown above.</li>
+          </ul></div></li>
+        <li class="now"><span class="when">Jul 2025 – now</span><div><h3>Co-Founder, part-time</h3><span class="org">Mech-Chem Solutions, part of Abbasi Son's Industries</span>
+          <ul class="pts">
+            <li>Co-founded this industrial supply company within the Abbasi Son's Industries group of companies.</li>
+            <li>Distributes industrial gases: ammonia (NH3), carbon dioxide (CO2), oxygen, argon, nitrogen, dissolved acetylene (DA) and LPG.</li>
+            <li>Supplies spare parts, machinery, fittings, equipment and lubricants, and complete solutions for ice factories and cold storage facilities.</li>
+          </ul></div></li>
+        <li><span class="when">May 2024 – Dec 2025</span><div><h3>Social Media Executive</h3><span class="org">Arpatech (Pvt) Ltd, Karachi</span>
+          <ul class="pts">
+            <li>Managed the marketing team for events and the overall marketing work across multiple ventures.</li>
+            <li>Ran Rava Documentary Films' YouTube channel single-handedly, and grew its social platforms from a low base into a well-known documentary channel in Pakistan.</li>
+            <li>Organised film screening events for 4–5 new Rava documentary projects, alongside on-ground and digital promotion.</li>
+            <li>Built organic social media strategies focused on growth, engagement and lead generation.</li>
+            <li>Ran SEO audits and fixed website problems, either myself or by coordinating with developers, and wrote search-optimised blogs.</li>
+            <li>Came up with design ideas for digital marketing material, and ran free and paid influencer campaigns.</li>
+          </ul></div></li>
+        <li><span class="when">May 2022 – May 2024</span><div><h3>Team Lead, previously Community Pharmacist</h3><span class="org">Medonline – Cure At Your Door, Karachi</span>
+          <ul class="pts">
+            <li>Handled the full order journey myself, from processing to delivery and customer feedback, then promoted to team lead to run it with a team of 8–10 people.</li>
+            <li>Managed stock, vault, payments, purchases and the wider e-commerce operation.</li>
+            <li>Managed the WordPress e-commerce portal and the pharmacy's digital marketing.</li>
+            <li>Counselled patients on medicines and wellness as the community pharmacist.</li>
+          </ul></div></li>
+        <li><span class="when">Dec 2021 – Mar 2022</span><div><h3>Shift Supervisor and Acting Branch Manager</h3><span class="org">DVAGO Pharmacy &amp; Wellness Experts, Karachi</span>
+          <ul class="pts">
+            <li>Ran the whole branch as acting branch manager, leading the team across all retail pharmacy operations.</li>
+            <li>Achieved 200–300% of sales targets.</li>
+            <li>Managed stock, vault, cash, audits and staff training.</li>
+          </ul></div></li>
+        <li><span class="when">2021</span><div><h3>Operations Supervisor</h3><span class="org">Lyfe Pharmacy</span><p>Designed, built and launched a new pharmacy for a group backed by a known pharmaceutical company, and trained its staff across inventory, procurement, POS and dispatch.</p></div></li>
+        <li><span class="when">2019 – 2022</span><div><h3>Branch Operations Supervisor, previously HR Assistant</h3><span class="org">Nova Care Pvt. Ltd.</span><p>Grew from intern to trainee pharmacist to pharmacist while serving the community during the pandemic. Worked on internal and external audits, managed employee data, attendance and payroll for more than 20 branches, then supervised branch operations.</p></div></li>
+        <li style="padding-bottom:0"><span class="when">Jan 2020 – Feb 2021</span><div><h3>Pharmacist</h3><span class="org">DVAGO Pharmacy &amp; Wellness Experts, Karachi</span><p>Branch operations, cash and inventory handling, inventory management and audits.</p></div></li>
       </ol>
-      <div class="edu"><strong>Doctor of Pharmacy (PharmD)</strong><span>University of Sindh, 2014 – 2019</span></div>
+      <div class="edu-grid">
+        <div class="edu"><strong>Doctor of Pharmacy (PharmD)</strong><span>University of Sindh, 2014 – 2019</span></div>
+        <div class="edu"><strong>Intermediate, Pre-Medical</strong><span>IBS Hyderabad</span></div>
+      </div>
     </div>
   </section>
 
   <section id="skills" style="padding-top:20px">
     <div class="wrap">
       <div class="skills">
-        <div><h3>Marketing</h3><div class="tags"><span>Digital marketing</span><span>Social media marketing</span><span>Brand strategy</span><span>Content strategy</span><span>Video storyboarding</span></div></div>
-        <div><h3>Commerce</h3><div class="tags"><span>E-commerce</span><span>WhatsApp ordering</span><span>Retail sales</span><span>Online pharmacy operations</span></div></div>
-        <div><h3>Healthcare and leadership</h3><div class="tags"><span>Retail pharmacy</span><span>Patient counselling</span><span>Team leadership</span><span>Operations management</span></div></div>
+        <div><h3>Marketing</h3><div class="tags"><span>Digital marketing</span><span>Social media marketing</span><span>Brand strategy</span><span>Content creation</span><span>SEO blog writing</span><span>Influencer marketing</span><span>Event and on-ground marketing</span><span>YouTube channel management</span><span>Paid social ads</span><span>Campaign management</span><span>Marketing team management</span><span>Design direction</span><span>Analytics</span><span>Video storyboarding</span></div></div>
+        <div><h3>Web and commerce</h3><div class="tags"><span>WordPress</span><span>Shopify</span><span>Website administration</span><span>SEO audits</span><span>E-commerce operations</span><span>Order fulfilment</span><span>WhatsApp ordering</span><span>Payments and purchasing</span><span>Retail sales</span><span>B2B industrial supply and distribution</span></div></div>
+        <div><h3>Pharmacy and leadership</h3><div class="tags"><span>Retail and community pharmacy</span><span>Patient counselling</span><span>Branch operations</span><span>Inventory and procurement</span><span>POS and dispatch</span><span>Vault and cash handling</span><span>Audits</span><span>Team leadership</span><span>Staff training</span><span>HRIS and payroll</span></div></div>
       </div>
     </div>
   </section>
@@ -451,7 +510,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   </section>
 </main>
 
-<footer><div class="wrap"><span>© 2026 Farhan Rashid Abbasi</span><span>Pharmacist and healthcare digital marketer</span></div></footer>
+<footer><div class="wrap"><span>© 2026 Farhan Rashid Abbasi</span><span>Pharmacist and healthcare digital marketer · Hyderabad, Pakistan</span></div></footer>
 
 <script>
 (function(){
