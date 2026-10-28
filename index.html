@@ -153,6 +153,24 @@ h2{font-size:clamp(2rem,4.4vw,3.3rem);line-height:1.05;letter-spacing:-.025em;fo
 .shots li.active .t{color:var(--coral)}
 .shots li.active .on-text{color:var(--coral)}
 
+/* Case studies */
+.cs-wrap{margin-top:110px}
+.cs-title{font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:-.02em;margin:0 0 26px}
+.cs{border-top:1px solid var(--line);padding:38px 0 40px;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,2fr);gap:40px}
+.cs:last-child{border-bottom:1px solid var(--line)}
+.cs-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.cs-tags span{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:4px 11px;color:var(--muted)}
+.cs-tags span:first-child{background:var(--mint);border-color:var(--mint);color:var(--ink);font-weight:600}
+.cs h3{font-size:clamp(1.35rem,2.4vw,1.75rem);line-height:1.15;letter-spacing:-.02em;margin:0}
+.cs-meta{margin:12px 0 0;color:var(--muted);font-size:14.5px}
+.cs-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px}
+.cs-grid h4{margin:0 0 8px;font-size:14px;font-weight:600;color:var(--mint)}
+.cs-grid p{margin:0;color:#D3DAD9;font-size:15.5px;line-height:1.55}
+.cs-grid ul{margin:0;padding-left:18px;color:#D3DAD9;font-size:15.5px;line-height:1.55}
+.cs-grid li{margin:0 0 6px}
+.cs-grid li::marker{color:var(--mint)}
+@media (max-width:960px){.cs{grid-template-columns:1fr;gap:22px}.cs-grid{grid-template-columns:1fr;gap:18px}}
+
 /* Experience */
 .timeline{list-style:none;margin:0;padding:0;border-left:1px solid var(--line);margin-left:6px}
 .timeline > li{position:relative;padding:0 0 38px 34px;display:grid;grid-template-columns:200px 1fr;gap:20px}
@@ -384,6 +402,34 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
           </div>
           <ul class="shots" id="shots"></ul>
         </div>
+      </div>
+
+      <div class="cs-wrap">
+        <h3 class="cs-title">More case studies</h3>
+        <article class="cs">
+          <div class="cs-head"><div class="cs-tags"><span>Media &amp; film</span><span>YouTube</span><span>Social media</span></div><h3>Growing a documentary studio into a known channel in Pakistan</h3><p class="cs-meta">Rava Documentary Films, via Arpatech · Social Media Executive · May 2024 – Dec 2025</p></div>
+          <div class="cs-grid">
+            <div><h4>The challenge</h4><p>Rava Documentary Films made strong documentaries, but their social and YouTube channels were small and inactive.</p></div>
+            <div><h4>What I did</h4><ul><li>Ran the YouTube channel single-handedly: uploads, titles, thumbnails and community replies</li><li>Built an organic growth plan across every social platform</li><li>Organised and promoted screenings for 4–5 new documentaries, on the ground and online</li></ul></div>
+            <div><h4>The result</h4><p>The channels grew from a low base into a well-known documentary brand in Pakistan, with a screening event for each new film.</p></div>
+          </div>
+        </article>
+        <article class="cs">
+          <div class="cs-head"><div class="cs-tags"><span>Healthcare</span><span>E-commerce</span><span>Pharmacy</span></div><h3>Launching an online pharmacy from scratch</h3><p class="cs-meta">Medicineonline.pk · Founder · May 2026 – now</p></div>
+          <div class="cs-grid">
+            <div><h4>The challenge</h4><p>Customers wanted medicines delivered, but many would rather send a photo of their prescription than search a catalogue for brand names.</p></div>
+            <div><h4>What I did</h4><ul><li>Built the store on WordPress, then moved it to Shopify</li><li>Added WhatsApp prescription ordering alongside the website</li><li>Set up the brand, and run its social media and paid ads</li><li>Wrote and storyboarded the launch video shown above</li></ul></div>
+            <div><h4>The result</h4><p>A working online pharmacy with two easy ways to order, its own brand and social channels, and a launch video.</p></div>
+          </div>
+        </article>
+        <article class="cs">
+          <div class="cs-head"><div class="cs-tags"><span>Healthcare</span><span>E-commerce</span><span>Operations</span></div><h3>Running an online pharmacy’s orders, end to end</h3><p class="cs-meta">Medonline – Cure At Your Door · Team Lead · May 2022 – May 2024</p></div>
+          <div class="cs-grid">
+            <div><h4>The challenge</h4><p>A fast-growing online pharmacy needed one person to own every order, from checkout to delivery and customer feedback.</p></div>
+            <div><h4>What I did</h4><ul><li>Handled order processing, packing, delivery and feedback myself, then trained a team to run it</li><li>Led a team of 8–10 people</li><li>Managed stock, vault, payments, purchasing and the WordPress store</li><li>Ran the pharmacy’s digital marketing</li></ul></div>
+            <div><h4>The result</h4><p>Promoted from community pharmacist to team lead, running the full e-commerce operation and its marketing.</p></div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
